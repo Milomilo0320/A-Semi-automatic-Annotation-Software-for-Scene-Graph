@@ -4,7 +4,7 @@
 
 # A-Semi-automatic-Annotation-Software-for-Scene-Graph
 
-Zhixuan Zhang, Chi Zhang, Yuehu Liu
+Zhixuan Zhang, Chi Zhang, Yuehu Liu, Zhenning Niu, Le Wang, Shuqiang Jiang
 
 
 ## Introduction
