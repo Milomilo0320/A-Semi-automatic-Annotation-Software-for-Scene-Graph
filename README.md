@@ -52,9 +52,10 @@ You can download the dataset in https://github.com/Milomilo0320/Traffic-Scene-Gr
 
 This project is released under the [Apache 2.0 license](LICENSE).
 
-## Citation【TODO】
+## Citation
 
 If you use this toolbox in your research, please cite this paper.
+Todo
 
 ## Contacts
 
@@ -64,7 +65,7 @@ Zhixuan Zhang: [zxzhang970320@stu.xjtu.edu.cn](mailto:zxzhang970320@stu.xjtu.edu
 
 ## Acknowledgements
 
-This project is supported by the Fundamental Research Funds for 【 】, No. 【 】.
+This project is supported by the National Key Research and Development Program of China, No. 2018AAA0102504.
 
 
 

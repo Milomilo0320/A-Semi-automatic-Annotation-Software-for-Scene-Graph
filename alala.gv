@@ -1,0 +1,16 @@
+// Scene Graph
+digraph {
+	gt_boxes41 [label="41-car" color="#000000" fillcolor="#f5d0e1" fontcolor="#000000" shape=box style=filled]
+	gt_rels0 [label="in front of" color="#000000" fillcolor="#c9fcd3" fontcolor="#000000" style=filled]
+	gt_boxes41 -> gt_rels0 [color="#000000"]
+	gt_boxes42 [label="42-car" color="#000000" fillcolor="#f5d0e1" fontcolor="#000000" shape=box style=filled]
+	gt_rels0 -> gt_boxes42 [color="#000000"]
+	gt_boxes14 [label="14-car" color="#000000" fillcolor="#f5d0e1" fontcolor="#000000" shape=box style=filled]
+	gt_rels1 [label="in the left of" color="#000000" fillcolor="#c9fcd3" fontcolor="#000000" style=filled]
+	gt_boxes14 -> gt_rels1 [color="#000000"]
+	gt_rels1 -> gt_boxes41 [color="#000000"]
+	gt_rels2 [label="driving in" color="#000000" fillcolor="#c9fcd3" fontcolor="#000000" style=filled]
+	gt_boxes14 -> gt_rels2 [color="#000000"]
+	gt_boxes4 [label="4-road" color="#000000" fillcolor="#f5d0e1" fontcolor="#000000" shape=box style=filled]
+	gt_rels2 -> gt_boxes4 [color="#000000"]
+}
