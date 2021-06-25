@@ -9,8 +9,15 @@ import json
 import h5py as h5
 from graphviz import Source
 import cv2
-# a label and all meta information
-###label定义（表2）
+
+###############################################################################
+###############################################################################
+################                                                 ##############
+################             You can define the data             ##############
+################                   from here                     ##############
+################                                                 ##############
+###############################################################################
+###############################################################################
 Label = namedtuple('Label', [
 
     'name',  # The identifier of this label, e.g. 'car', 'person', ... .
@@ -96,66 +103,41 @@ labels = [
     Label('license plate', 34, -1, 'vehicle', 7, False, True, (0, 0, 1)), #原本是0, 0, 142
 ]
 
+###Labels in different scene graph layer
 foregroundid = [17, 18, 19, 20, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34]
 conid = [11, 12, 13, 14, 15, 16, 21, 23]
 flatid = [6, 7, 8, 9, 10, 22]
 noneid = [0, 1, 2, 3, 4, 5]
 
 
-
-# 类编号-类名
-
-# 建立颜色的索引和id的索引
-color2label = {label.color: label for label in labels}
-id2label = {label.id: label for label in labels}
-
-# 输入原始图片地址，返回三个图片地址
-file_name = []
-
-
-ins_to_stuff = []
-width =0
-height=0
-insid=[]
-
-
-k = 2  # 默认k=3
-
-
-if_open = 0  # 是否打开图片
-
-
-rect = []  # 记录画板上的内容，其中rect0是底层图片
-
-
 if_region = 1
 
 
-rel_list_all = ["and", "belonging to", "made of", "at", "in", "from", "for", "to", "has", "covered in",
-                "along","on", "with", "part of", "of", "against", "over", "in front of", "behind", "on back of",
-                "under","between", "above", "near", "in the left of", "in the right of", "over", "parked on", "growing on","standing on",
-                "attached to", "hanging from", "lying on", "flying in", "looking at", "holding", "laying on", "riding", "across", "walking on",
-                "eating", "watching", "driving in", "sitting on", "carrying", "using", "covering", "playing", "painted on", "mounted on",
-                "occluding", "occluded","completely in", "half of in", "access_in the left of", "access_in the right of","access_in the front of", "access_in the back of", "access_in the center of", "access_around",
-                "ride on","in the front-left of", "in the front-right of","in the back-left of", "in the back-right of","access_between","access_in two side of"]
+#relationships list
+rel_list_all = ["belonging to", "at", "in/on", "to", "has", "covered in", "along", "with", "part of","against",
+                "over_s", "in front of", "behind", "on back of", "under","between", "above", "near", "in the left of","in the right of",
+                "parked on", "growing on","standing on", "attached to", "hanging from", "lying on", "looking at", "holding", "riding","walking on",
+                "watching", "driving in", "sitting on", "carrying", "using", "mounted on", "occluding", "occluded", "access_in the left of","access_in the right of",
+                "access_in the front of", "access_in the back of", "access_in the center of", "access_around","ride on","in the front-left of", "in the front-right of","in the back-left of", "in the back-right of","access_between",
+                "access_in two side of"]
 
-# 每个关系都有一个类型
+
+#relationships type
 rel_list_all_type = ["p", "p", "p", "p", "p", "p", "p", "p", "p", "p",
-                     "p", "p", "p", "p", "p", "p", "s", "s", "s", "s",
-                     "s", "s", "s", "s", "s", "s", "v", "a", "a", "a",
-                     "v", "v", "a", "a", "v", "v", "a", "v", "a", "a",
-                     "v", "v", "a", "a", "v", "v", "v", "v", "v", "v",
-                     "o", "o", "a", "a", "l", "l", "l", "l", "l", "l",
-                     "a", "s", "s", "s", "s","l","l"]
+                     "s", "s", "s", "s", "s", "s", "s", "s", "s", "s",
+                     "a", "a", "a", "v", "v", "a",  "v", "v","v", "a",
+                     "v", "a", "a", "v", "v",  "v", "o", "o", "l", "l",
+                     "l", "l", "l", "l",  "a", "s", "s", "s", "s", "l",
+                     "l"]
 
-# 还有一个表格存放每一层对应的类型
+
+#relationships type Hierarchy
 rel_list_layer = [[], ["m"], ["p"], ["p"], [],
                   ["m"], ["s", "p", "v", "o"], ["s", "p", "v", "o", "a"], ["s", "p", "v", "o"], [],
                   ["m"], ["s", "p", "v", "o", "a"], ["l", "s"], ["s", "a", "o"], [],
                   ["m"], ["s", "p", "v", "o"], ["s", "a", "o"], ["s", "o","p"], [],
                   [], [], ["f"], ["f"], []]
 
-# 先对表格进行一个分类
 rel_p = []
 for i in range(len(rel_list_all_type)):
     if rel_list_all_type[i] == 'p':
@@ -186,29 +168,62 @@ for i in range(len(rel_list_all_type)):
     if rel_list_all_type[i] == 'l':
         rel_l.append([i, rel_list_all[i]])
 
+
+###############################################################################
+###############################################################################
+################                                                 ##############
+################                 Finish the define               ##############
+################                                                 ##############
+###############################################################################
+###############################################################################
+
+
+
+
+
+# Create an index of colours and labels' id
+color2label = {label.color: label for label in labels}
+id2label = {label.id: label for label in labels}
+
+# image address
+file_name = []
+
+ins_to_stuff = []
+width =0
+height=0
+insid=[]
+
+k = 2  # Image display ratio
+
+if_open = 0
+
+rect = []
+
+
+
 rel_list_now_id = []
 
 
 sub_rel_ob = [[-1, -1, -1]]
-sub_rel_ob_attri=[[-1, -1, -1]] #记录三个属性变量
+sub_rel_ob_attri=[[-1, -1, -1]]
 
 
 cs = 0
-rect1 = []  # 起点集合
-rect2 = []  # 终点集合
-rect1_temp=[0,0]  #临时记录起点
-rect2_temp=[0,0]  #临时记录终点
-renum=0 #记录region个数
-renum2=0 #记录点击了多少下region_enter
+rect1 = []
+rect2 = []
+rect1_temp=[0,0]
+rect2_temp=[0,0]
+renum=0
+renum2=0
 focus_region=-1
 
 if_start_cluster = False
-allcluster=[] #所有cluster的集合
-select_cluster=[] #存放临时的cluster
+allcluster=[]
+select_cluster=[]
 cluster_num=0
 cluster_list_index=0
 direc_list_index=-1
-annoedclu_index=0 #默认位置始终为停留的最新的位置
+annoedclu_index=0
 annoedclu_num=0
 
 insid_cluster=[]
@@ -225,7 +240,6 @@ recoid=-1
 direc=[]
 
 if_select_cluster=False
-#global if_select_cluster
 
 oripicnum=-1
 
