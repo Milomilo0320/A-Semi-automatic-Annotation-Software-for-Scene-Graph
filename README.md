@@ -15,7 +15,7 @@ It is a tool designed for researchers and engineers to annotate scene graph, whi
 
 ### Major Features
 
-- **Friendly user interactivity**: It has a friendly GUI. Users can visually view the contents annotated and scene graph in real time.
+- **Friendly user interactivity.**: It has a friendly GUI. Users can visually view the contents annotated and scene graph in real time.
 - **Rich annotatable information**: In addition to the relationships between instances, it also allow users to annotate diversified information such as regions, clusters and attributes.
 - **Low manpower for annotation**: We designed a semi-automatic annotation module in our system, which can recommend the relationship according to the image information and a priori database. The semi-automatic annotation module greatly improves the annotation efficiency.
 - **Strong adaptability**: Users are free to define the underlying data, including object categories, relationship lists and so on. It is help for researchers to build more adaptive datasets.
@@ -61,7 +61,7 @@ Todo
 
 If you have any questions about our work, please do not hesitate to contact us by emails.
 
-Zhixuan Zhang: [zxzhang970320@stu.xjtu.edu.cn](mailto:zxzhang970320@stu.xjtu.edu.cn)
+ [zxzhang970320@stu.xjtu.edu.cn](mailto:zxzhang970320@stu.xjtu.edu.cn)
 
 ## Acknowledgements
 
