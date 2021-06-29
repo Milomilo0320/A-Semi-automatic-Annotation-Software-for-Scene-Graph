@@ -371,7 +371,7 @@ def save_file():
     #print(ins_to_stuff)
     global file_name
     global oripicnum
-    f = h5.File('D:\\h5_data\\' + oripicnum +'_'+''.join([file_name, '.h5']), 'w')
+    f = h5.File('.\\' + ''.join([file_name.split('.')[0], '.h5']), 'w')
     f.create_dataset('sub_rel_ob', data=sub_rel_ob)
     f.create_dataset('sub_rel_ob_attri', data=sub_rel_ob_attri)
     f.create_dataset('ins_to_stuff', data=ins_to_stuff)
@@ -381,7 +381,7 @@ def save_file():
     f.create_dataset('rect1', data=rect1)
     f.create_dataset('rect2', data=rect2)
     a = [j for i in allcluster for j in i]
-    len_a=[]
+    len_a = []
     for i in range(len(allcluster)):
         len_a.append(len(allcluster[i]))
     f.create_dataset('allcluster_num', data=len_a)
@@ -392,9 +392,8 @@ def save_file():
     scene_graph_save.render(''.join([file_name, '.gv']), view=False)
     scene_graph_save.render(''.join([file_name, '.gv']), format='png', view=False)
 
-
-    fma = h5.File('..\\motif_attr.h5', 'w')
-    global new_m_a,m_a,new_m_a_a,m_a_a
+    fma = h5.File('.\\motif_attr.h5', 'w')
+    global new_m_a, m_a, new_m_a_a, m_a_a
 
     out_m_a= new_m_a+m_a
     out_m_a_a = new_m_a_a + m_a_a
@@ -1923,7 +1922,7 @@ def to_direc_b(event):#
             direc_list.insert("end", c)
     else:
         direc.append([int(sub_id), 2])
-        c = "↓     " + str(sub_id) + ":" + id2label[int(ins_to_stuff[int(sub_id)][1])].name
+        c = "↓     " + str(int(sub_id)) + ":" + id2label[int(ins_to_stuff[int(sub_id)][1])].name
         direc_list.insert("end", c)
 
     f_text.set(" ")
@@ -1950,7 +1949,7 @@ def to_direc_l(event):#
             direc_list.insert("end", c)
     else:
         direc.append([int(sub_id), 3])
-        c = "←     " + str(sub_id) + ":" + id2label[int(ins_to_stuff[int(sub_id)][1])].name
+        c = "←     " + str(int(sub_id)) + ":" + id2label[int(ins_to_stuff[int(sub_id)][1])].name
         direc_list.insert("end", c)
 
     f_text.set(" ")
@@ -1977,7 +1976,7 @@ def to_direc_r(event):#
             direc_list.insert("end", c)
     else:
         direc.append([int(sub_id), 4])
-        c = "→     " + str(sub_id) + ":" + id2label[int(ins_to_stuff[int(sub_id)][1])].name
+        c = "→     " + str(int(sub_id)) + ":" + id2label[int(ins_to_stuff[int(sub_id)][1])].name
         direc_list.insert("end", c)
 
     f_text.set(" ")
@@ -2049,7 +2048,7 @@ image_box.state = "on"
 image_box.pack()
 
 
-sg_box = tk.Label(window2)
+sg_box = tk.Label(window2,bg='white')
 
 
 bt_region = tk.StringVar()
