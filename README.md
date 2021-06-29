@@ -22,7 +22,7 @@ It is a tool designed for researchers and engineers to annotate scene graph, whi
 - **Applying simply**: The output dataset files are organized in VG150's data format and can be directly applied to most existing models for scene graph learning.
 
 ### Demo video
-TODO
+https://www.bilibili.com/video/BV1xV411x7cX/
 
 
 ### Software Framework
