@@ -23,6 +23,7 @@ It is a tool designed for researchers and engineers to annotate scene graph, whi
 
 ### Demo video
 Video available on YouTube: https://youtu.be/WeTfNgmp8xA
+
 Video available on Bilibili: https://www.bilibili.com/video/BV1xV411x7cX/
 
 
