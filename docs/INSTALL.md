@@ -64,6 +64,8 @@ You should put images in the corresponding folders:
 
 Note: Three images for a scene should be in the same file name and the same scale.
 
+![image](../teaser_image/folder.png)
+
 ## Frequently Asked Questions
 1. Q: What's wrong?
 ![image](../teaser_image/question1.png)
