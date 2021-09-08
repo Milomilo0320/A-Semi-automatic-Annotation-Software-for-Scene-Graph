@@ -35,7 +35,7 @@ In this annotation software, there are three core modules: **Main Annotation Mod
 
 ## Updates
 
- **25 June 2021:** Our paper will be online.
+ **25 June 2021:** Our paper will be online. https://arxiv.org/abs/2109.02226
 
  **25 June 2021:** Our software will be launched!
 
@@ -60,7 +60,15 @@ This project is released under the [Apache 2.0 license](LICENSE).
 ## Citation
 
 If you use this toolbox in your research, please cite this paper.
-Todo
+
+@misc{zhang2021geneannotator,
+      title={GeneAnnotator: A Semi-automatic Annotation Tool for Visual Scene Graph}, 
+      author={Zhixuan Zhang and Chi Zhang and Zhenning Niu and Le Wang and Yuehu Liu},
+      year={2021},
+      eprint={2109.02226},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
 
 ## Contacts
 
