@@ -61,6 +61,7 @@ This project is released under the [Apache 2.0 license](LICENSE).
 
 If you use this toolbox in your research, please cite this paper.
 
+```
 @misc{zhang2021geneannotator,
       title={GeneAnnotator: A Semi-automatic Annotation Tool for Visual Scene Graph}, 
       author={Zhixuan Zhang and Chi Zhang and Zhenning Niu and Le Wang and Yuehu Liu},
@@ -69,6 +70,7 @@ If you use this toolbox in your research, please cite this paper.
       archivePrefix={arXiv},
       primaryClass={cs.CV}
 }
+```
 
 ## Contacts
 
